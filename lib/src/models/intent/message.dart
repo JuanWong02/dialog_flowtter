@@ -48,7 +48,7 @@ class Message extends Equatable {
   final BasicCard? basicCard;
 
   /// The suggestion chips for Actions on Google.
-  final List<Suggestion>? suggestions;
+  final Suggestion? suggestion;
 
   /// The link out suggestion chip for Actions on Google.
   final LinkOutSuggestion? linkOutSuggestion;
@@ -81,7 +81,7 @@ class Message extends Equatable {
     this.payload,
     this.simpleResponse,
     this.basicCard,
-    this.suggestions,
+    this.suggestion,
     this.linkOutSuggestion,
     this.listSelect,
     this.carouselSelect,
@@ -99,7 +99,7 @@ class Message extends Equatable {
     if (payload != null) return MessageType.payload;
     if (simpleResponse != null) return MessageType.simpleResponse;
     if (basicCard != null) return MessageType.basicCard;
-    if (suggestions != null) return MessageType.suggestion;
+    if (suggestion != null) return MessageType.suggestion;
     if (linkOutSuggestion != null) return MessageType.linkOutSuggestion;
     if (listSelect != null) return MessageType.listSelect;
     if (carouselSelect != null) return MessageType.carouselSelect;
@@ -126,7 +126,7 @@ class Message extends Equatable {
         payload,
         simpleResponse,
         basicCard,
-        suggestions,
+        suggestion,
         linkOutSuggestion,
         listSelect,
         carouselSelect,

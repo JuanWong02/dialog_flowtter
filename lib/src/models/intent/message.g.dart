@@ -30,9 +30,9 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
     basicCard: json['basicCard'] == null
         ? null
         : BasicCard.fromJson(json['basicCard'] as Map<String, dynamic>),
-    suggestions: (json['suggestions'] as List<dynamic>?)
-        ?.map((e) => Suggestion.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    suggestion: json['suggestion'] == null
+        ? null
+        : Suggestion.fromJson(json['suggestion'] as Map<String, dynamic>),
     linkOutSuggestion: json['linkOutSuggestion'] == null
         ? null
         : LinkOutSuggestion.fromJson(
@@ -68,8 +68,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
   writeNotNull('payload', instance.payload);
   writeNotNull('simpleResponse', instance.simpleResponse?.toJson());
   writeNotNull('basicCard', instance.basicCard?.toJson());
-  writeNotNull(
-      'suggestions', instance.suggestions?.map((e) => e.toJson()).toList());
+  writeNotNull('suggestion', instance.suggestion?.toJson());
   writeNotNull('linkOutSuggestion', instance.linkOutSuggestion?.toJson());
   writeNotNull('listSelect', instance.listSelect?.toJson());
   writeNotNull('carouselSelect', instance.carouselSelect?.toJson());
