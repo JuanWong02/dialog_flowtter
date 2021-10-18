@@ -42,7 +42,7 @@ class Message extends Equatable {
   final Map<String, dynamic>? payload;
 
   /// The voice and text-only responses for Actions on Google.
-  final List<SimpleResponse>? simpleResponses;
+  final SimpleResponse? simpleResponse;
 
   /// The basic card response for Actions on Google.
   final BasicCard? basicCard;
@@ -79,7 +79,7 @@ class Message extends Equatable {
     this.quickReplies,
     this.card,
     this.payload,
-    this.simpleResponses,
+    this.simpleResponse,
     this.basicCard,
     this.suggestions,
     this.linkOutSuggestion,
@@ -97,7 +97,7 @@ class Message extends Equatable {
     if (quickReplies != null) return MessageType.quickReply;
     if (card != null) return MessageType.card;
     if (payload != null) return MessageType.payload;
-    if (simpleResponses != null) return MessageType.simpleResponse;
+    if (simpleResponse != null) return MessageType.simpleResponse;
     if (basicCard != null) return MessageType.basicCard;
     if (suggestions != null) return MessageType.suggestion;
     if (linkOutSuggestion != null) return MessageType.linkOutSuggestion;
@@ -124,7 +124,7 @@ class Message extends Equatable {
         quickReplies,
         card,
         payload,
-        simpleResponses,
+        simpleResponse,
         basicCard,
         suggestions,
         linkOutSuggestion,

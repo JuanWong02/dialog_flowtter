@@ -23,9 +23,10 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
         ? null
         : DialogCard.fromJson(json['card'] as Map<String, dynamic>),
     payload: json['payload'] as Map<String, dynamic>?,
-    simpleResponses: (json['simpleResponses'] as List<dynamic>?)
-        ?.map((e) => SimpleResponse.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    simpleResponse: json['simpleResponse'] == null
+        ? null
+        : SimpleResponse.fromJson(
+            json['simpleResponse'] as Map<String, dynamic>),
     basicCard: json['basicCard'] == null
         ? null
         : BasicCard.fromJson(json['basicCard'] as Map<String, dynamic>),
@@ -65,8 +66,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
   writeNotNull('quickReplies', instance.quickReplies?.toJson());
   writeNotNull('card', instance.card?.toJson());
   writeNotNull('payload', instance.payload);
-  writeNotNull('simpleResponses',
-      instance.simpleResponses?.map((e) => e.toJson()).toList());
+  writeNotNull('simpleResponse', instance.simpleResponse?.toJson());
   writeNotNull('basicCard', instance.basicCard?.toJson());
   writeNotNull(
       'suggestions', instance.suggestions?.map((e) => e.toJson()).toList());
